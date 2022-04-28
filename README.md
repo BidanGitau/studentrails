@@ -1,6 +1,6 @@
 # README
 
-###Starter basics with ruby on rails application
+### Starter basics with ruby on rails application
 
 Things you may want to cover:
 
