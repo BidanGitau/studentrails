@@ -1,3 +1,43 @@
 .navbar {
-    background-color: rgb(206, 133, 38) !important;
+    background-color: black !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#home-container {
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.jumbotron {
+    padding: 20px;
+    background-image: url('jumbo.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 425px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#page-content {
+    flex: 1 0 auto;
+    background-color: rgba(196, 188, 188, 0.007);
+}
+
+#sticky-footer {
+    flex-shrink: none;
 }
