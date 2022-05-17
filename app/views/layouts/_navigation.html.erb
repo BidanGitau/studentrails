@@ -11,22 +11,56 @@
          <%= link_to "Articles" ,articles_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+         <%= link_to "Bloggers", users_path, class: "nav-link" %>
         </li>
+
+     
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Blogge
+          Articles
           </a>
+             <% if logged_in?%>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
           <%= link_to "View articles", articles_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
+               <%end%>
         </li>
+ 
+  
+        <% if logged_in?%>
+           <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+       <%="(Admin)" if current_user.admin? %>Profile[<%=current_user.username%>]
+          </a>
+            
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "view profile", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
+            <%= button_to "Delete Profile", user_path(current_user), class: "dropdown-item text-danger", data: {turbo_method: :delete}%>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+            
+        </li>
+         </li>
+           
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      
+          <%= button_to "Logout", logout_path, class:"nav-link",data: { turbo_method: :delete} %>
+       
+        <%else%>
+      <li class="nav-item">
+      
+          <%= link_to "Login", login_path, class:"nav-link"%>
         </li>
+              <li class="nav-item">
+      
+          <%= link_to "Sign Up", signup_path, class:"nav-link"%>
+        </li>
+        <%end%>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

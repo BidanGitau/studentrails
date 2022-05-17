@@ -1,6 +1,20 @@
 
-<div id="page-content">
-<h2 class="text-center mt-4"> Article listing page</h2>
+<div id="page-content ">
+<h2 class="text-center mt-4 bg"> Article listing page</h2>
+<div class="flickr_pagination ">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => false %>
+  </div>
 
-  <%= will_paginate @articles%>
   <%= render 'article' %>
+ <h2 class="m">ggggggg sucker</h2>
+<div class="flickr_pagination mb-3">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => false %>
+  </div>
+
+ 
